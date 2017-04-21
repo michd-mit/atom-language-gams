@@ -1,5 +1,5 @@
 'fileTypes': [
-  'gms'
+  'gms','inc'
 ]
 'name': 'GAMS'
 'patterns':[
@@ -8,7 +8,7 @@
     'name': 'storage.type.macro.gams'
   }
   {
-    'match': '\\%([a-zA-Z0-9_])+\\%'
+    'match': '\\%([a-zA-Z0-9_\\.])+\\%'
     'name': 'storage.type.macro.gams'
   }
   # Comments
@@ -39,6 +39,8 @@
   }
 
   # Operators
+  #   modification for One Dark, Atom Dark, etc:
+  #     replace keyword.operator -> keyword.other
   {
     'match': ';'
     'name': 'keyword.control.terminator.gams'
@@ -49,35 +51,35 @@
   }
   {
     'match': '\\(|\\)'
-    'name': 'keyword.operator.parenthesis.gams'
+    'name': 'keyword.other.parenthesis.gams'
   }
   {
     'match': ','
-    'name': 'keyword.operator.parenthesis.inside.gams'
+    'name': 'keyword.other.parenthesis.inside.gams'
   }
   {
     'match': '/'
-    'name': 'keyword.operator.slash.gams'
+    'name': 'keyword.other.slash.gams'
   }
   {
     'match': '\\=(e|l|g)\\='
-    'name': 'keyword.operator.equation.gams'
+    'name': 'keyword.other.equation.gams'
   }
   {
     'match': '\\='
-    'name': 'keyword.operator.assignment.gams'
+    'name': 'keyword.other.assignment.gams'
   }
   {
     'match': '\\+|\\-|\\*|\\^|\\*\\*'
-    'name': 'keyword.operator.arithmetic.gams'
+    'name': 'keyword.other.arithmetic.gams'
   }
   {
     'match': '<|(\\blt\\b)|>|\\bgt\\b|<\\=|\\ble\\b|>\\=|\\bge\\b|\\=|\\beq\\b|<>|\\bne\\b'
-    'name': 'keyword.operator.comparison.gams'
+    'name': 'keyword.other.comparison.gams'
   }
   {
     'match': '\\b(?i)(and|or|not|in|xor)\\b'
-    'name': 'keyword.operator.logical.gams'
+    'name': 'keyword.other.logical.gams'
   }
 
   # Constants
@@ -114,7 +116,7 @@
 
   # Keywords
   {
-    'match': '^(?i)((set|(positive |negative |free |nonnegative |interger |binary |sos1 |sos2 |semicont |semiint )?variable|parameter|scalar|equation|file)s?)\\b'
+    'match': '^(?i)((set|(positive |negative |free |nonnegative |integer |binary |sos1 |sos2 |semicont |semiint )?variable|parameter|scalar|table|equation|file)s?)\\b'
     'name': 'keyword.declaration.gams'
   }
   {
@@ -126,7 +128,7 @@
     'name': 'keyword.control.comment.gams'
   }
   {
-    'match': '\\$(?i)(abort|double|echo|eject|error|lines|log|(on|off)(dollar|echo|include|listing|symlist|symxref|uellist|uelxref|upper)|single|stars|stitle|title)\\b'
+    'match': '\\$(?i)(abort|display|double|echo|eject|error|lines|log|(on|off)(dollar|echo|include|listing|symlist|symxref|uellist|uelxref|upper)|single|stars|stitle|title)\\b'
     'name': 'keyword.control.lst.gams'
   }
   {
@@ -134,7 +136,7 @@
     'name': 'keyword.control.include.gams'
   }
   {
-    'match': '\\$(?i)(abort|error|goto|if((i)?( not)?)|label|(set|drop|eval)(global|local)?)\\b'
+    'match': '\\$(?i)(abort|else|elseif|endif|error|goto|if((i)?(( not)?( set)?|( set)?))|ifthen|label|(set|drop|eval)(global|local)?)\\b'
     'name': 'keyword.control.content.gams'
   }
   {
